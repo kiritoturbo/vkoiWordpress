@@ -1,0 +1,44 @@
+<?php
+/**
+ * Single product short description
+ *
+ * This template can be overridden by copying it to yourtheme/woocommerce/single-product/short-description.php.
+ *
+ * HOWEVER, on occasion WooCommerce will need to update template files and you
+ * (the theme developer) will need to copy the new files to your theme to
+ * maintain compatibility. We try to do this as little as possible, but it does
+ * happen. When this occurs the version of the template file will be bumped and
+ * the readme will list any important changes.
+ *
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 3.3.0
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
+global $post;
+
+$short_description = apply_filters( 'woocommerce_short_description', $post->post_excerpt );
+
+if ( ! $short_description ) {
+	return;
+}
+
+?>
+<!-- <div class="woocommerce-product-details__short-description">
+	<?php echo $short_description; // WPCS: XSS ok. ?>
+</div> -->
+<div class="product-single-short-descript d-none">
+	<?php echo $short_description; // WPCS: XSS ok. ?>
+</div>
+<div class="product-single-promotion">
+	<h3 class="product-single-promotion-title"><i class="fas fa-gift mr-2"></i> Khuyến mãi - ưu đãi</h3>
+	<ul class="product-single-promotion-box">
+		<li>Nhập mã <strong>EGANY </strong>thêm 5% đơn hàng</li>
+		<li>Giảm giá 10% khi mua từ 5 sản phẩm</li>
+		<li>Tặng phiếu mua hàng khi mua từ 500k</li>
+	</ul>
+</div>
